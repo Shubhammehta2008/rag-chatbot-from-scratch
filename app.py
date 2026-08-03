@@ -8,15 +8,15 @@ api_key = os.getenv("GROQ_API_KEY")
 
 st.title("🤖 My Groq Chatbot")
 
-# Client ko session_state mein rakho
+
 if "client" not in st.session_state:
     st.session_state.client = Groq(api_key=api_key)
 
-# History ko khud maintain karo (Groq mein built-in chat session nahi hota)
+
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# Purani messages screen par dikhao
+# Purani messages screen par dikhane keliye 
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
