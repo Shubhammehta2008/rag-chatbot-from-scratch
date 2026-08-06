@@ -1,0 +1,6 @@
+streamlit
+groq
+python-dotenv
+chromadb
+sentence-transformers
+scikit-learn
