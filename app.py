@@ -14,17 +14,21 @@ if "client" not in st.session_state:
 
 
 if "messages" not in st.session_state:
-    st.session_state.messages = []
+    st.session_state.messages = [{
+            "role": "system",
+            "content": "You are a helpful assistant. Always respond in exactly 3 bullet points, nothing more, nothing less."
+        }]
 
 # Purani messages screen par dikhane keliye 
 for msg in st.session_state.messages:
-    with st.chat_message(msg["role"]):
+     if msg["role"] != "system":
+       with st.chat_message(msg["role"]):
         st.write(msg["content"])
 
 user_input = st.chat_input("Type your message...")
 
 if user_input:
-    # User ka message history mein add karo
+    # User ka message history mein add karne keliye 
     st.session_state.messages.append({"role": "user", "content": user_input})
     with st.chat_message("user"):
         st.write(user_input)

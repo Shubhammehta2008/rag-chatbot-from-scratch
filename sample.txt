@@ -1,0 +1,9 @@
+Python is a high-level programming language.
+
+Python is widely used in Artificial Intelligence and Machine Learning.
+
+C++ is preferred for high-performance systems like game engines and HFT trading systems.
+
+RAG stands for Retrieval Augmented Generation.
+
+ChromaDB is a vector database used in RAG applications.
