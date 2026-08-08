@@ -7,3 +7,5 @@ C++ is preferred for high-performance systems like game engines and HFT trading 
 RAG stands for Retrieval Augmented Generation.
 
 ChromaDB is a vector database used in RAG applications.
+ 
+ quantam computing  is a domain where we study on quabit .
