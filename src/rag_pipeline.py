@@ -17,12 +17,12 @@ from dotenv import load_dotenv
 from groq import Groq
 
 from chunking import chunk_text
-from embedding import embed_texts, embed_query
+from embedding_demo import embed_texts, embed_query
 from prompts import build_prompt
 
 
 
-MODEL_NAME = "qwen/qwen3.6-27b"
+MODEL_NAME = "llama-3.3-70b-versatile"
 
 DATA_FILE = (
     Path(__file__).resolve().parent.parent
