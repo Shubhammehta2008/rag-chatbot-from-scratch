@@ -22,7 +22,7 @@ from prompts import build_prompt
 
 
 
-MODEL_NAME = "llama-3.3-70b-versatile"
+MODEL_NAME = "qwen/qwen3.6-27b"
 
 DATA_FILE = (
     Path(__file__).resolve().parent.parent
@@ -89,12 +89,12 @@ def ask_rag(query: str) -> str:
 
     query_embedding = embed_query(query)
 
-    # 2. Relevant chunks retrieve karo
+   # 2. Relevant chunks retrieve karo
     results = collection.query(
     query_embeddings=query_embedding.tolist(),
     n_results=2,
     )
-
+ 
     retrieved_chunks = results["documents"][0]
 
     # 3. Context banao

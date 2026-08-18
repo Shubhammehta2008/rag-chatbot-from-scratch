@@ -1,47 +1,69 @@
 """
-Streamlit chatbot with conversation memory, powered by Groq (LLaMA 3.3 70B).
+Streamlit chatbot with conversation memory, powered by Groq.
 
 Run with:
     streamlit run src/chatbot_app.py
 """
 
-import os
-from rag_pipeline import ask_rag
 import streamlit as st
+from rag_pipeline import ask_rag
 
-st.set_page_config(page_title="RAG Chatbot", page_icon="🤖")
+
+# -------------------------
+# Streamlit configuration
+# -------------------------
+
+st.set_page_config(
+    page_title="RAG Chatbot",
+    page_icon="🤖",
+)
+
 st.title("🤖 RAG Chatbot")
 
-# conversation memory 
+
+# -------------------------
+# Conversation memory
+# -------------------------
 
 if "messages" not in st.session_state:
-    st.session_state.messages = [
-        {
-            "role": "system",
-            "content": (
-                # "You are a helpful assistant. Always respond in exactly "
-                "3 bullet points, nothing more, nothing less."
-            ),
-        }
-    ]
+    st.session_state.messages = []
 
-# Render previous messages (skip the hidden system prompt)
+
+# -------------------------
+# Render previous messages
+# -------------------------
+
 for msg in st.session_state.messages:
 
-    if msg["role"] != "system":
-        with st.chat_message(msg["role"]):
-            st.write(msg["content"])
+    with st.chat_message(msg["role"]):
+        st.write(msg["content"])
 
-# user input
+
+# -------------------------
+# User input
+# -------------------------
+
 user_input = st.chat_input("Type your message...")
 
+
 if user_input:
-    st.session_state.messages.append({"role": "user", "content": user_input})
+
+    # Save user message
+    st.session_state.messages.append(
+        {
+            "role": "user",
+            "content": user_input,
+        }
+    )
+
     with st.chat_message("user"):
         st.write(user_input)
 
 
-    # rag pipeline
+    # -------------------------
+    # RAG pipeline
+    # -------------------------
+
     with st.chat_message("assistant"):
 
         with st.spinner("Searching document..."):
@@ -54,7 +76,9 @@ if user_input:
 
         st.write(ai_reply)
 
-    # 3. Save AI response
+
+    # -------------------------
+    # Save AI response
     # -------------------------
 
     st.session_state.messages.append(

@@ -1,4 +1,4 @@
-# 🤖 GenAI Learning: RAG Chatbot & Experiments
+# 🤖 RAG Chatbot — Built From Scratch
 
 A hands-on collection of Generative AI / Retrieval-Augmented Generation (RAG)
 building blocks in Python — text chunking, embeddings, a vector store, prompt
@@ -38,7 +38,7 @@ ties them all together into a full retrieval → generation flow.
 ## Project Structure
 
 ```
-genai-learning/
+rag-chatbot-from-scratch/
 ├── README.md
 ├── requirements.txt
 ├── .env.example
@@ -63,8 +63,8 @@ genai-learning/
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
-   cd genai-learning
+   git clone https://github.com/Shubhammehta2008/rag-chatbot-from-scratch.git
+   cd rag-chatbot-from-scratch
    ```
 
 2. **Create and activate a virtual environment**
